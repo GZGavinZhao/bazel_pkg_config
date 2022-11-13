@@ -1,7 +1,7 @@
 # vi: ft=bzl
 package(default_visibility = ["//visibility:private"])
 
-_imports = [p[:len(p)-2] for p in glob(["{}/**/*.a".format(d) for d in [%{deps}]])]
+_imports = [p[:len(p)-2] for p in glob(["{}/**/*.so".format(d) for d in [%{deps}]])]
 [cc_import(
     name = i.replace("/", "_"),
     hdrs = glob([%{hdrs}]),
